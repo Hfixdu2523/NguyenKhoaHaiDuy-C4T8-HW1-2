@@ -1,0 +1,2 @@
+hobby = ["LOL"]
+print(hobby)
