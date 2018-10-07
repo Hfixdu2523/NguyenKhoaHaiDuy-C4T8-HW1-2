@@ -1,4 +1,4 @@
 hobby = ["Vainglory", "LOL", "Eroge", "Manga", "Anime", 'Netflix', 'Dota', 'Something']
-l = len(hobby)
-for i in range(l):
-    print(hobby[i])
+
+for i, item in enumerate(hobby):
+    print(i + 1, ".", item.upper())
