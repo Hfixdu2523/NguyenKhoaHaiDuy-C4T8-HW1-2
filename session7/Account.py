@@ -15,9 +15,9 @@ while True:
                     else:
                         print("Invalid password") 
                 else:
-                    print("Invalid password")
+                    print("Password must contain alphabet letters and numbers")
             else:
-                print("Invalid password")
+                print("Password muust be at least 8 letters long")
         else:
             print("Invalid email")
     else:
