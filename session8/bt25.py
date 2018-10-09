@@ -1,7 +1,8 @@
 import random
-pool = ("Batman", "Superman", "Kirito", "Asuna", "Goku", "Iron Man", "Capt.America")
+pool = ("batman", "superman", "kirito", "asuna", "goku", "iron man", "captain america")
 word = random.choice(pool)
 list_word = list(word)
+print("Answer is among these words: ", pool)
 quizz = []
 for i in range(len(list_word)):
     ran_char = random.choice(list_word)
@@ -10,7 +11,7 @@ for i in range(len(list_word)):
 print(*quizz)
 while True:
     guess = input("Enter your guess: ")
-    if guess == correct:
+    if guess == word:
         print("Congrats, you are right!")
         break
     else:
