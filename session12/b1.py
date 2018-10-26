@@ -29,14 +29,14 @@
 
 n = int(input("Enter width of table: "))
 m = int(input("Enter height of table: "))
+g = int(input("Enter x co-ordinate of X: "))
+l = int(input("Enter y co-ordinate of X: "))
 for x in range(n):
-    for y in range(m):
-        g = int(input("Enter x co-ordinate of X: "))
-        l = int(input("Enter y co-ordinate of X: "))
+    for y in range(m):      
         if x == g and y == l:
             print("X", end = " ")
-        # else:
-        #     print("-", end = " ")
+        else:
+            print("-", end = " ")
 print()
 
 
