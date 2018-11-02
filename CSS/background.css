@@ -1,0 +1,15 @@
+#back {
+    height: 1000px;
+    width: 100%;
+    background-image: url("https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcXYVoCdhRPHWkNyABwc3YUOb8SGz4oiYBckAn_dKqrd6158zOlphIpRXNUAQc0P.NLLcBSTP42mY4qSIFNpiXEuXzsQ_11MflTFg2Sm8vXZKtLeHmVJ69mSwKZoy1QOJbtqjX9J2JfqcqORExgxlntsz6glq515iKPYIdG6i1.Y4-&h=1080&w=1920&format=jpg");
+    background-color: royalblue;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.backgr {
+    height: 500px;
+    width: 100%;
+    
+    background-color: blueviolet;
+}

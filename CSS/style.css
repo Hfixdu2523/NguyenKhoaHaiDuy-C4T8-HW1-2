@@ -1,0 +1,25 @@
+selector {
+    property: value;
+}
+
+/* tag name selector (rarely used)*/
+h1 {
+    color: red;
+}
+
+h2 {
+    color: blue;
+}
+
+/* id selector */
+#heading-2 {
+    color:palegreen;
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+}
+
+/* class selector */
+.text-right {
+    text-align: right;
+}
+

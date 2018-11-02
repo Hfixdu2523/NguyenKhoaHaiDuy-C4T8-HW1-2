@@ -1,0 +1,21 @@
+/* text-transform */
+/* font-weight */
+
+selector {
+    property: value;
+}
+
+#name {
+    color: red;
+
+}
+
+.title {
+    text-transform: uppercase;
+    font-family: 'Lusitana', serif;
+}
+
+.author {
+    font-weight: bold;
+    text-transform: capitalize;
+}
