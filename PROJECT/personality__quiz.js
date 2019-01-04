@@ -171,15 +171,28 @@ function score() {
 //Goi Ham Tren
 showQuestion();
 score();
+var final;
+function judge(){
+    var pending = {           
+        most_a: 'You are high',
+        most_b: 'You are not high',
+        most_c: 'You are normal',
+        other:'You are oofted',            
+    };
+        
 
-
-
-
-
-
-
-
-
+        
+        
+    if (answer.a > answer.b && answer.a > answer.c){
+        final = pending.most_a;
+    } else if (answer.b > answer.a && answer.b > answer.c){
+        final = pending.most_b;
+    } else if (answer.c > answer.b && answer.c > answer.a){
+        final = pending.most_c;
+    } else {
+        final = pending.other;
+    }
+};
 
 // var something = document.getElementsByClassName('other');
 // something.addEventListener('click', function(){
@@ -188,37 +201,17 @@ score();
 
 // Ham nay de gan cac su kien vao nut click
 var ListButton = document.getElementsByClassName("btn");
-function loop(){
-    function judge(){
-        var pending = {
-            choices: {
-                most_a: 'You are',
-                most_b: 'You are',
-                most_c: 'You are',
-                other:'You are',
-            }
-        };
-        
-        var render = `
-            <div>${final}</div>
-            `;
-        
-        
-        if (answer.a > answer.b, answer.a > answer.c){
-            var final = pending.choices.most_a;
-        } else if (answer.b > answer.a, answer.b > answer.c){
-            var final = pending.choices.most_b;
-        } else if (answer.c > answer.b, answer.c > answer.a){
-            var final = pending.choices.most_c;
-        } else {
-            var final = pending.choices.other;
-        }
-    };
+function loop(){   
+    
+    
     for (var j = 0; j < ListButton.length; j++) {
         if (question.length === 0) {
             //Xu ly sau khi het cau hoi
             DOMquestions.innerHTML = "";
             console.log(answer);
+            var render = `
+            <div>${final}</div>
+            `;
             DOMquestions.insertAdjacentHTML("afterbegin", render);
         } else {
             ListButton[j].addEventListener("click", function() {
@@ -226,6 +219,7 @@ function loop(){
                 showQuestion();
                 loop();
                 score();
+                judge();
             });
         }
     }
