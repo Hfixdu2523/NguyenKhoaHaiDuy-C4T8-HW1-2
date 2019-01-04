@@ -91,7 +91,11 @@ var question = [
         }
     }
 ];
-
+var answer = {
+    a: 0,
+    b: 0,
+    c: 0,
+}
 // Function - Excute
 function RemoveItemChoice(list, item) {
     var quesList = list.filter(function(element){
@@ -106,38 +110,132 @@ function showQuestion() {
     // Chon random 1 thang trong cau hoi
     var item = question[Math.floor(Math.random()*question.length)];
     // Render ra HTML
-    var renderHTML = `
-    <div id="${item.id}">
-        <div>${item.id}</div>
-        <div>${item.question}</div>
-        <div>Answer</div>
-        <ul>
-            <div><button class="btn"><li>${item.answer.a}</li></button></div>
-            <div><button class="btn"><li>${item.answer.b}</li></button></div>
-            <div><button class="btn"><li>${item.answer.c}</li></button></div>
-        </ul>
-    </div>
-    `;
-    DOMquestions.insertAdjacentHTML("beforeend", renderHTML);
-    // Loai bo thang item khoi List
-    
-    question = RemoveItemChoice(question, item)
+    if (question.length === 0) {
+        return
+    } else {
+        var renderHTML = `
+        <div id="${item.id}">
+            <div>${item.id}</div>
+            <div>${item.question}</div>
+            <div>Answer</div>
+            <ul>
+                <div><button class="btn" id='btn1'><li>${item.answer.a}</li></button></div>
+                <div><button class="btn" id='btn2'><li>${item.answer.b}</li></button></div>
+                <div><button class="btn" id='btn3'><li>${item.answer.c}</li></button></div>
+            </ul>
+        </div>
+        `;
+        DOMquestions.insertAdjacentHTML("beforeend", renderHTML);
+        // Loai bo thang item khoi List
+        question = RemoveItemChoice(question, item)
+    }
 }
+
+function check(answer) {
+    if (answer.a + answer.b + answer.c <= 9) {
+        return true
+    } else {
+        console.log("Het cau hoi");
+        return false
+    }
+}
+
+//Ham handle button
+function score() {
+    var button = document.getElementById('btn1');
+    button.onclick = function() {
+        if (check(answer)) {
+            answer.a += 1;
+            console.log("Answer A:" + answer.a);
+        }
+        // console.log("CLick bnt1");
+    };
+
+    var button2 = document.getElementById('btn2');
+    button2.onclick = function() {
+        if (check(answer)) {
+            answer.b += 1;
+            console.log("Answer B:" + answer.b);
+        }
+    };
+
+    var button3 = document.getElementById('btn3');
+    button3.onclick = function() {
+        if (check(answer)) {
+            answer.c += 1;
+            console.log("Answer C:" + answer.c);
+        }
+    };
+}
+
 //Goi Ham Tren
 showQuestion();
+score();
 
-var ListButton = document.getElementsByClassName("btn");
+
+
+
+
+
+
+
+
+
+// var something = document.getElementsByClassName('other');
+// something.addEventListener('click', function(){
+    
+// });
+
 // Ham nay de gan cac su kien vao nut click
+var ListButton = document.getElementsByClassName("btn");
 function loop(){
+    function judge(){
+        var pending = {
+            choices: {
+                most_a: 'You are',
+                most_b: 'You are',
+                most_c: 'You are',
+                other:'You are',
+            }
+        };
+        
+        var render = `
+            <div>${final}</div>
+            `;
+        
+        
+        if (answer.a > answer.b, answer.a > answer.c){
+            var final = pending.choices.most_a;
+        } else if (answer.b > answer.a, answer.b > answer.c){
+            var final = pending.choices.most_b;
+        } else if (answer.c > answer.b, answer.c > answer.a){
+            var final = pending.choices.most_c;
+        } else {
+            var final = pending.choices.other;
+        }
+    };
     for (var j = 0; j < ListButton.length; j++) {
-        ListButton[j].addEventListener("click", function() {
-            DOMquestions.innerHTML = ""
-            showQuestion();
-            loop();
-        });
+        if (question.length === 0) {
+            //Xu ly sau khi het cau hoi
+            DOMquestions.innerHTML = "";
+            console.log(answer);
+            DOMquestions.insertAdjacentHTML("afterbegin", render);
+        } else {
+            ListButton[j].addEventListener("click", function() {
+                DOMquestions.innerHTML = ""
+                showQuestion();
+                loop();
+                score();
+            });
+        }
     }
 }
 
 loop();
+
+
+
+
+
 
 
