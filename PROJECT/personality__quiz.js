@@ -13,7 +13,7 @@ var question = [
         id:2,
         question: "How would you react to beaing bullied?",
         answer: {
-            a: 'A. Keep quiet and suffer',
+            a: 'A. Keep quiet and abide to the actions',
             b: 'B. Ask for help from friends and family to deal with the situation',
             c: 'C. Report teachers and keep away from the bullies',
         }
@@ -49,45 +49,45 @@ var question = [
         id:6,
         question: "Find out that your money has been stolen?",
         answer: {
-            a: 'A. Weep in tears',
-            b: 'B. Forget immediately',
-            c: 'C. Act tough but dead inside',
+            a: 'A. Keep it a secret and get by with no money',
+            b: 'B. Report to everyone, determined to find the culprit',
+            c: 'C. Ask friends but do not tell adults',
         }
     },
     {
         id:7,
         question: "You see another student being gang-bullied. What would you do?",
         answer: {
-            a: 'A. Weep in tears',
-            b: 'B. Forget immediately',
-            c: 'C. Act tough but dead inside',
+            a: 'A. Feel guilty but do nothing',
+            b: 'B. Try to talk the bullies off',
+            c: 'C. Tell teachers and wait for their assisstance',
         }
     },
     {
         id:8,
         question: "Your favorite book series has just been cancelled. How do you respond?",
         answer: {
-            a: 'A. Weep in tears',
-            b: 'B. Forget immediately',
-            c: 'C. Act tough but dead inside',
+            a: 'A. Do a read-over of all the previous installments of the series',
+            b: 'B. Gather like-minded fans and organise a demonstaration on why the series should not be cancelled',
+            c: 'C. Share posts on social medias that yearn the cancel of the series',
         }
     },
     {
         id:9,
         question: "You get a chance to walk home alone with your crush. You:",
         answer: {
-            a: 'A. Weep in tears',
-            b: 'B. Forget immediately',
-            c: 'C. Act tough but dead inside',
+            a: 'A. Feel too shy and awkward to make a move',
+            b: 'B. Take the chance and ask him/her out',
+            c: 'C. Try to find out if he/she is interseted in you to plan ahead',
         }
     },
     {
         id:10,
-        question: "You see a box of puppies left on the pavement. What do you do?",
+        question: "You see a box of puppies left on the pavement, but remembers that your parents do not alow animals. What do you do?",
         answer: {
-            a: 'A. Weep in tears',
-            b: 'B. Forget immediately',
-            c: 'C. Act tough but dead inside',
+            a: 'A. Quickly leave and try not to look back',
+            b: 'B. Bring them home anyway, for fear that they might die if left behind',
+            c: 'C. Find and ask animal-loving communities whether the puppies could be adopted',
         }
     }
 ];
@@ -114,8 +114,8 @@ function showQuestion() {
         return
     } else {
         var renderHTML = `
-        <div id="${item.id}">
-            <div>${item.id}</div>
+        <div id="${item.id}" class='answerbox'>
+            
             <div>${item.question}</div>
             <div>Answer</div>
             <ul>
@@ -174,10 +174,10 @@ score();
 var final;
 function judge(){
     var pending = {           
-        most_a: 'You are high',
-        most_b: 'You are not high',
-        most_c: 'You are normal',
-        other:'You are oofted',            
+        most_a: 'You are a sensitive type of person, being shy and afraid to speak up for your own good. Most of the time this affects your ability to make the right choices, however, you can always change as long as you hang on and work hard!!',
+        most_b: 'You are strong and independent - enough to make your own decisions and always ready to act or speak up for yourself. However, you put others before yourself more often than not, and that is what makes you truly appreciable :) Be proud of who you are!! ',
+        most_c: 'You stand somewhere in between being solitary and open-hearted: on occasions you would act selfless, on others you would not; sometimes you would speak up if you are treated unfairly, others times you would rather let things happen regardless,... Whatever choices you make, and however you respond to what is thrown at you, the only thing you should care about is that you are doing the right things, and no one can judge you for that. Keep going!!',
+        other: 'You are neither too sensitive nor strong, but rather your personality is a mixture of characteristic traits, and you are the one who decides what to do in which situation. Your choices depend on what you think is most suitable or most reasonable, and most often that is the effective course of action, therefore there is nothing to be afraid of. Work hard and eventually you will become perfect :)',            
     };
         
 
@@ -210,7 +210,7 @@ function loop(){
             DOMquestions.innerHTML = "";
             console.log(answer);
             var render = `
-            <div>${final}</div>
+            <div id='judge'>${final}</div>
             `;
             DOMquestions.insertAdjacentHTML("afterbegin", render);
         } else {

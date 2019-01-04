@@ -1,8 +1,52 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 #format {
     display: flex;
     flex-flow: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     border: 2px black;
+    height: 100vh;
+    width: 100%;
+    color: azure;
+}
 
+body {
+    background-image: url(https://cocoalakedesign.files.wordpress.com/2009/08/karen.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#head {
+    text-transform: uppercase;
+    color: yellowgreen;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: larger;
+}
+
+#questions {
+    color: aqua;
+    border-block-start: darkolivegreen;
+    
+}
+
+#subhead {
+    font-size:large;
+    color: gold;
+}
+
+#judge {
+    color: blanchedalmond;
+    font-size: x-large;
+}
+
+.answerbox {
+    font-size: larger;
 }
