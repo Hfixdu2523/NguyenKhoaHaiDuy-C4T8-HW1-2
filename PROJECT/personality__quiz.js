@@ -11,7 +11,7 @@ var question = [
     },
     {
         id:2,
-        question: "How would you react to beaing bullied?",
+        question: "How would you react to being bullied?",
         answer: {
             a: 'A. Keep quiet and abide to the actions',
             b: 'B. Ask for help from friends and family to deal with the situation',
@@ -83,7 +83,7 @@ var question = [
     },
     {
         id:10,
-        question: "You see a box of puppies left on the pavement, but remembers that your parents do not alow animals. What do you do?",
+        question: "You see a box of puppies left on the pavement, but remember that your parents do not alow animals. What do you do?",
         answer: {
             a: 'A. Quickly leave and try not to look back',
             b: 'B. Bring them home anyway, for fear that they might die if left behind',
@@ -116,8 +116,8 @@ function showQuestion() {
         var renderHTML = `
         <div id="${item.id}" class='answerbox'>
             
-            <div>${item.question}</div>
-            <div>Answer</div>
+            <div id='question'><ul><li>${item.question}</li></ul></div>
+            
             <ul>
                 <div><button class="btn" id='btn1'><li>${item.answer.a}</li></button></div>
                 <div><button class="btn" id='btn2'><li>${item.answer.b}</li></button></div>
@@ -210,7 +210,11 @@ function loop(){
             DOMquestions.innerHTML = "";
             console.log(answer);
             var render = `
+            <div id='content'>
             <div id='judge'>${final}</div>
+            <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/07/11/11/harold-0.jpg" alt="Man">
+            <div id='end'><h3>(Reload page to re-do quiz)</h3></div>
+            </div>
             `;
             DOMquestions.insertAdjacentHTML("afterbegin", render);
         } else {
